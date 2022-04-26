@@ -1,0 +1,1 @@
+export * from 'client/app/page-components/public/Index';
