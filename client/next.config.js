@@ -6,19 +6,18 @@ const nextConfig = {
     swcMinify: false,
     sassOptions: {
         prependData: `
-        @import "./src/client/assets/styles/general/_variables.scss";
         @import "./src/client/assets/styles/general/_mixins.scss";
         `,
-        _indentWidth: 4
+        _indentWidth: 4,
     },
     webpack(config) {
         config.module.rules.push({
             test: /\.svg$/,
             issuer: {
-                and: [/\.(js|ts)x?$/]
+                and: [/\.(js|ts)x?$/],
             },
 
-            use: ['@svgr/webpack']
+            use: ['@svgr/webpack'],
         });
 
         config.module.rules.push({
@@ -26,13 +25,22 @@ const nextConfig = {
             use: {
                 loader: 'url-loader', // this need file-loader
                 options: {
-                    limit: 50000
-                }
-            }
+                    limit: 50000,
+                },
+            },
         });
 
         return config;
-    }
-}
+    },
 
-module.exports = nextConfig
+    async rewrites() {
+        return [
+            {
+                source: '/:path*',
+                destination: `${process.env.NEXT_PUBLIC_SOCKET}/:path*`, // Proxy to Backend
+            },
+        ];
+    },
+};
+
+module.exports = nextConfig;
