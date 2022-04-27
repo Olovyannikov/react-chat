@@ -1,23 +1,28 @@
 .btn {
-  width: auto;
-  padding: 14px 55px;
-  border-radius: 32px;
-  font-size: 18px;
-  line-height: 1.5;
-  color: var(--c-white);
-  background: linear-gradient(315deg, var(--c-primary) 0, #01F094 100%);
-  transition: 0.3s ease-in-out;
+    width: auto;
+    padding: 14px 55px;
+    border-radius: 32px;
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--c-white);
+    background: linear-gradient(315deg, var(--c-primary) 0, #01F094 100%);
+    transition: 0.3s ease-in-out;
 
-  &:hover {
-    background: linear-gradient(315deg, var(--c-primary) 0, var(--c-primary) 100%);
-  }
+    &:hover {
+        background: linear-gradient(315deg, var(--c-primary) 0, var(--c-primary) 100%);
+    }
+
+    &:disabled {
+        background: #c1bfbf;
+        cursor: not-allowed;
+    }
 }
 
 // sizes
 
 .sm {
-  padding: 14px 55px;
-  border-radius: 32px;
-  font-size: 16px;
-  line-height: 1.2;
+    padding: 14px 55px;
+    border-radius: 32px;
+    font-size: 16px;
+    line-height: 1.2;
 }
